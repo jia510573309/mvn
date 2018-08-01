@@ -36,14 +36,16 @@ public class MailController {
 	private Multipart mp; // Multipart对象,邮件内容,标题,附件等内容均添加到其中后再生成MimeMessage对象
 
 	
+	
+	
 	public static void main(String[] args) {
 		String smtp = "smtp.qq.com"; // "SMTP服务器";
 		String from = "510573309@qq.com";// "发信人";
-		String to = "494278785@qq.com"; // 收信人
+		String to = "1014933922@qq.com"; // 收信人
 		String copyto = "510573309@qq.com";// "抄送人";
 		String subject = "天气预报"; // "邮件主题";
 		TestController t = new TestController();
-		List<String> weatherList = t.getWeather("渠县");
+		List<String> weatherList = t.getWeather("重庆");
 		String weather = weatherList.toString();
 		String content = weather;// "邮件内容";
 		String username = "510573309@qq.com";// "用户名";
