@@ -17,6 +17,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
 /**
  * 发送邮件
  * 
@@ -35,24 +38,29 @@ public class MailController {
 	private String password;
 	private Multipart mp; // Multipart对象,邮件内容,标题,附件等内容均添加到其中后再生成MimeMessage对象
 
-	
-	
-	
-	public static void main(String[] args) {
+	/**
+	 * @author Jia Min
+	 * @param 天气预报地址
+	 */
+	public static void sendEmail(String weatherAddress){
 		String smtp = "smtp.qq.com"; // "SMTP服务器";
 		String from = "510573309@qq.com";// "发信人";
-		String to = "1014933922@qq.com"; // 收信人
-		String copyto = "510573309@qq.com";// "抄送人";
+		String to = "1115017529@qq.com"; // 收信人
+		String copyto = "136494389@qq.com";// "抄送人";
 		String subject = "天气预报"; // "邮件主题";
-		TestController t = new TestController();
-		List<String> weatherList = t.getWeather("重庆");
+		WeatherController t = new WeatherController();
+		List<String> weatherList = t.getWeather(weatherAddress);
 		String weather = weatherList.toString();
 		String content = weather;// "邮件内容";
 		String username = "510573309@qq.com";// "用户名";
 		String password = "vlqgmrvfyjbxbhci";// "密码";
 		String filename = "C:\\users\\administrator\\desktop\\images\\butterfly.jpg";// "附件路径，如：d:\\test.jpg;
-		MailController.sendAndCc(smtp, from, to, copyto, subject, content, username,
-				password, filename);
+		MailController.sendAndCc(smtp, from, to, copyto, subject, content, username,password, filename);
+	}
+	
+
+	public static void main(String[] args) {
+		//sendEmail("温江");
 	}
 	
 	

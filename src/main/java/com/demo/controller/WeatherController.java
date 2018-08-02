@@ -19,12 +19,12 @@ import cn.com.webxml.WeatherWSSoap;
 @RestController
 @RequestMapping("/test")
 @Api(description="测试Controller")
-public class TestController {
+public class WeatherController {
 
 	@GetMapping("/getHello")
 	@ApiOperation("测试请求")
 	public  String getMessage(){
-		return "Hello.";
+		return "Hello.SpringBoot";
 	}
 	
 	@GetMapping("/getWeather")
