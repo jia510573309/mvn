@@ -30,7 +30,7 @@ public class WeatherController {
 	@GetMapping("/getWeather")
 	@ApiOperation("获取天气信息")
 	@ApiImplicitParam(name = "address", value = "查询地址", defaultValue = "重庆", required = false, dataType = "string", paramType = "query")
-	public List<String> getWeather(@RequestParam(defaultValue="重庆",required=false) String address){
+	public static List<String> getWeather(@RequestParam(defaultValue="重庆",required=false) String address){
 		WeatherWS ww = new WeatherWS();
 		WeatherWSSoap ws = ww.getWeatherWSSoap();
 		ArrayOfString weather = ws.getWeather(address, null);

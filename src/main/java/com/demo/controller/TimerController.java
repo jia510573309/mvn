@@ -25,11 +25,29 @@ public class TimerController {
 	//System.out.println(env.getProperty("testParam.test"));
     @Scheduled(fixedRate = 120000)
     public void scheduled() {
-    	MailController.sendEmail("温江");
+    	//MailController.sendEmail("温江");
     }
     public static void main(String[] args) {
-		String[] str = {"c","b1","a11"};
-		Arrays.sort(str);
-		System.out.println(str[0]+"-"+str[1]+"-"+str[2]);
+		String s = "1。2。3。4。5。";
+		String[] split = s.split("。", 2);//第二个参数代表此数后面的总共切成一段
+		String string = split.toString();
+		System.out.println(string);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

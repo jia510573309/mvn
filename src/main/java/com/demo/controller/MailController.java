@@ -50,9 +50,7 @@ public class MailController {
 		String to = "1115017529@qq.com"; // 收信人
 		String copyto = "136494389@qq.com";// "抄送人";
 		String subject = "天气预报"; // "邮件主题";
-		WeatherController t = new WeatherController();
-		List<String> weatherList = t.getWeather(weatherAddress);
-		String weather = weatherList.toString();
+		String weather = WeatherController.getWeather(weatherAddress).toString();
 		String content = weather;// "邮件内容";
 		String username = "510573309@qq.com";// "用户名";
 		String password = "vlqgmrvfyjbxbhci";// "密码";
