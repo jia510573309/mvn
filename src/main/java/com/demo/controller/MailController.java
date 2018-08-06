@@ -1,5 +1,6 @@
 package com.demo.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -17,8 +18,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.Async;
 
 /**
  * 发送邮件
@@ -26,6 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * @author 
  * 
  */
+@Async
 public class MailController {
 
 	private MimeMessage mimeMsg; // MIME邮件对象
@@ -42,6 +43,7 @@ public class MailController {
 	 * @author Jia Min
 	 * @param 天气预报地址
 	 */
+	@Async
 	public static void sendEmail(String weatherAddress){
 		String smtp = "smtp.qq.com"; // "SMTP服务器";
 		String from = "510573309@qq.com";// "发信人";
@@ -56,13 +58,8 @@ public class MailController {
 		String password = "vlqgmrvfyjbxbhci";// "密码";
 		String filename = "C:\\users\\administrator\\desktop\\images\\butterfly.jpg";// "附件路径，如：d:\\test.jpg;
 		MailController.sendAndCc(smtp, from, to, copyto, subject, content, username,password, filename);
+		System.out.println("发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 	}
-	
-
-	public static void main(String[] args) {
-		//sendEmail("温江");
-	}
-	
 	
 	/**
 	 * Constructor
