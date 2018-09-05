@@ -28,10 +28,10 @@ public class TimerController {
     	//MailController.sendEmail("温江");
     }
     public static void main(String[] args) {
-		String s = "1。2。3。4。5。";
-		String[] split = s.split("。", 2);//第二个参数代表此数后面的总共切成一段
-		String string = split.toString();
-		System.out.println(string);
+    	String str = "^[a-z0-9A-Z]+$";
+    	String flag = "asd嘿嘿asd";
+    	boolean matches = flag.matches(str);
+    	System.out.println(matches);
 	}
 }
 

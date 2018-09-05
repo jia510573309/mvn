@@ -6,25 +6,29 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.webxml.ArrayOfString;
 import cn.com.webxml.WeatherWS;
 import cn.com.webxml.WeatherWSSoap;
 
 
-@RestController
+@Controller
 @RequestMapping("/test")
 @Api(description="测试Controller")
 public class WeatherController {
 
-	@GetMapping("/getHello")
+	@GetMapping("/a")
 	@ApiOperation("测试请求")
-	public  String getMessage(){
-		return "Hello.SpringBoot";
+	public @ResponseBody String getMessage(){
+		
+		return "test请求成功";
 	}
 	
 	@GetMapping("/getWeather")
