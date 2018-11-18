@@ -19,7 +19,7 @@ import cn.com.webxml.WeatherWS;
 import cn.com.webxml.WeatherWSSoap;
 
 
-@Controller
+@RestController
 @RequestMapping("/test")
 @Api(description="测试Controller")
 public class WeatherController {
@@ -27,7 +27,6 @@ public class WeatherController {
 	@GetMapping("/a")
 	@ApiOperation("测试请求")
 	public @ResponseBody String getMessage(){
-		
 		return "test请求成功";
 	}
 	
@@ -40,6 +39,5 @@ public class WeatherController {
 		ArrayOfString weather = ws.getWeather(address, null);
 		List<String> list = weather.getString();
 		return list;
-		
 	}
 }

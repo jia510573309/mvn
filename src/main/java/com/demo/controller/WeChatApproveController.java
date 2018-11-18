@@ -77,11 +77,12 @@ public class WeChatApproveController {
 				}
 			} catch (Exception e) {
 				//e.printStackTrace();
-				mess = "输入地区可查询天气信息(功能完善中，敬请期待...)";
+				mess = "输入地区可查询天气信息(功能完善中，敬请期待...)--jm";
 			}
 			System.out.println(
 					"发送者:"+ToUserName+"\t发送内容:"+Content+"\t发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 			message = textMessage.initMessage(FromUserName, ToUserName,mess);
+			System.out.println(mess);
 		}
 		try {
 			out = response.getWriter();
