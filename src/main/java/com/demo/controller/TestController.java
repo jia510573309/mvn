@@ -55,6 +55,7 @@ public class TestController {
 		String url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token="
 				+ "15_U28ng0DN1vFiq2WjKfcp-HM2OWfRZizuxFam8ZQZRDc2fgFtTyl7apo6iFrFDKySQgaq0H3Pc1rqh1moljyI4bXb0LFy_FtkoVb0cXs_szg40w7O1SwW6TdAwlDGF2GL9muYrzjho9NOy1kNXVViABAMKK";
 
+		
 		try {
 			String rs = HttpUtils.sendPost(url, menujson.toJSONString());
 			System.out.println(rs);
