@@ -1,15 +1,13 @@
 package com.demo.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.alibaba.fastjson.JSONObject;
 import com.demo.menu.ClickButton;
 import com.demo.menu.ViewButton;
 import com.demo.utils.HttpUtils;
-
 import net.sf.json.JSONArray;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/")
@@ -22,6 +20,7 @@ public class TestController {
 
 	@RequestMapping("test")
 	public @ResponseBody String test() {
+		System.err.println("~~~~~~");
 		return "mvn -- request Success ! ! !";
 	}
 
