@@ -1,31 +1,51 @@
 spring:
     datasource:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driverClassName: com.mysql.jdbc.Driver
-        druid:
-            first:  #数据源1
-                url: jdbc:mysql://192.168.0.173:3306/pamperpet?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
-                username: dev
-                password: 123123
-            second:  #数据源2
-                url: jdbc:mysql://192.168.0.173:3306/pamperpet?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
-                username: dev
-                password: 123123
-          
+        url: jdbc:mysql://47.107.130.208/min?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
+        username: root
+        password: lk1150516922.
 server:
     tomcat:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
     port: 8088
-    connection-timeout: 5000
-    context-path: /
-                
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml
-  #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.min.entity.*.entity
-  
+    servlet:
+        context-path: /
+
+#mybatis
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    #实体扫描，多个package用逗号或者分号分隔
+    typeAliasesPackage: com.min.entity
+    global-config:
+        #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+        id-type: 0
+        #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+        field-strategy: 2
+        #驼峰下划线转换
+        db-column-underline: true
+        #刷新mapper 调试神器
+        refresh-mapper: true
+        #数据库大写下划线转换
+        #capital-mode: true
+        #序列接口实现类配置
+        #key-generator: com.baomidou.springboot.xxx
+        #逻辑删除配置
+        logic-delete-value: -1
+        logic-not-delete-value: 0
+        #自定义填充策略接口实现
+        #meta-object-handler: com.baomidou.springboot.xxx
+        #自定义SQL注入器
+        sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    configuration:
+        map-underscore-to-camel-case: true
+        cache-enabled: false
+        call-setters-on-nulls: true
+        
+#包路径为mapper文件包路径
+logging:
+    level:
+      com.min.dao: DEBUG
 testParam:
   test: 100
                 

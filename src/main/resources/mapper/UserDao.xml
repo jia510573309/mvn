@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.min.dao.UserDao">
+	
+	<resultMap type="com.min.entity.UserEntity" id="userMap">
+		<result property="userId" column="user_id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="sex" column="sex"/>
+		<result property="address" column="address"/>
+	</resultMap>
+	
+    <select id="selectUser" resultType="com.min.entity.UserEntity">
+		select * from m_user;
+	</select>
+
+</mapper>

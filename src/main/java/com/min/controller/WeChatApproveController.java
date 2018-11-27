@@ -47,21 +47,21 @@ public class WeChatApproveController {
 		PrintWriter out = null;
 		//将微信请求xml转为map格式，获取所需的参数
 		Map<String,String> map = MessageUtil.xmlToMap(request);
-		String ToUserName = map.get("ToUserName");
-		String FromUserName = map.get("FromUserName");
-		String MsgType = map.get("MsgType");
-		String Content = map.get("Content");
+		String toUserName = map.get("ToUserName");
+		String fromUserName = map.get("FromUserName");
+		String msgType = map.get("MsgType");
+		String content = map.get("Content");
 		String message = null;
 		//处理文本类型,回复相应的封装的内容
-		if("text".equals(MsgType)){
+		if("text".equals(msgType)){
 			TextMessageUtil textMessage = new TextMessageUtil();
 			String regex = "[\\u4e00-\\u9fa5]+";
 			String mess = "";
 			try {
-				if(!Content.matches(regex)){//用户输入内容不全为汉字的话直接抛出异常
+				if(!content.matches(regex)){//用户输入内容不全为汉字的话直接抛出异常
 					throw new Exception();
 				}
-				List<String> weather = WeatherController.getWeather(Content);//获取天气信息
+				List<String> weather = WeatherController.getWeather(content);//获取天气信息
 				String msg = weather.toString();
 				if(msg.contains("免费")){//免费的总是那么有限，查询次数有限。多了明天再来
 					mess = "名额有限,请明日再来(功能完善中，敬请期待...)";
@@ -75,11 +75,11 @@ public class WeChatApproveController {
 				}
 			} catch (Exception e) {
 				//e.printStackTrace();
-				mess = "输入地区可查询天气信息(功能完善中，敬请期待...)--jm";
+				mess = "输入地区可查询天气信息(功能完善中，敬请期待....m)";
 			}
 			System.out.println(
-					"发送者:"+ToUserName+"\t发送内容:"+Content+"\t发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-			message = textMessage.initMessage(FromUserName, ToUserName,mess);
+					"发送者:"+toUserName+"\t发送内容:"+content+"\t发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+			message = textMessage.initMessage(fromUserName, toUserName,mess);
 			System.out.println(mess);
 		}
 		try {

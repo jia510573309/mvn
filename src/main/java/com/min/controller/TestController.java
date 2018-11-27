@@ -3,8 +3,11 @@ package com.min.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.min.menu.ClickButton;
 import com.min.menu.ViewButton;
+import com.min.service.UserService;
 import com.min.utils.HttpUtils;
+import com.min.utils.R;
 import net.sf.json.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class TestController {
 
+	@Autowired
+	private UserService userService;
+	
 	@RequestMapping("index")
 	public String getIndex() {
 		return "index.html";
@@ -23,7 +29,18 @@ public class TestController {
 		System.err.println("~~~~~~");
 		return "mvn -- request Success ! ! !";
 	}
-
+	
+	@RequestMapping("user")
+	public @ResponseBody R getUser() {
+		System.err.println("~~~测试用户数据~~~");
+		return R.ok(userService.selectUser());
+	}
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		ClickButton cbt = new ClickButton();
 		cbt.setKey("image");
