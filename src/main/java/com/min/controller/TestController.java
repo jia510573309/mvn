@@ -27,7 +27,7 @@ public class TestController {
 	@RequestMapping("test")
 	public @ResponseBody String test() {
 		System.err.println("~~~~~~");
-		return "mvn -- request Success ! ! !";
+		return "mvn -- request Success ! ! !update by eclipse";
 	}
 	
 	@RequestMapping("user")
