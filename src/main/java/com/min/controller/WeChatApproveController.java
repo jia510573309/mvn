@@ -80,7 +80,7 @@ public class WeChatApproveController {
 			System.out.println(
 					"发送者:"+toUserName+"\t发送内容:"+content+"\t发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 			message = textMessage.initMessage(fromUserName, toUserName,mess);
-			System.out.println(mess);
+		
 		}
 		try {
 			out = response.getWriter();

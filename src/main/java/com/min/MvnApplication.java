@@ -8,14 +8,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class MvnApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(MvnApplication.class, args);
 	}
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Application.class);
+		return application.sources(MvnApplication.class);
 	}
+	
 }

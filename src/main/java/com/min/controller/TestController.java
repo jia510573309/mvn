@@ -26,8 +26,7 @@ public class TestController {
 
 	@RequestMapping("test")
 	public @ResponseBody String test() {
-		System.err.println("~~~~~~");
-		return "mvn -- request Success ! ! !update by eclipse";
+		return "mvn -- request Success ! ! !update2 at 2018年11月28日15:38:46";
 	}
 	
 	@RequestMapping("user")
@@ -35,10 +34,6 @@ public class TestController {
 		System.err.println("~~~测试用户数据~~~");
 		return R.ok(userService.selectUser());
 	}
-	
-	
-	
-	
 	
 	
 	public static void main(String[] args) {
