@@ -23,7 +23,6 @@ public class WeChatApproveController {
 
 	@GetMapping("/app")
 	public void login(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("success");
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
 		String nonce = request.getParameter("nonce");
@@ -41,6 +40,7 @@ public class WeChatApproveController {
 			out.close();
 		}
 	}
+	
 	@PostMapping("/app")
 	public void getMessage(HttpServletRequest request,HttpServletResponse response){
 		response.setCharacterEncoding("utf-8");
@@ -63,11 +63,11 @@ public class WeChatApproveController {
 				}
 				List<String> weather = WeatherController.getWeather(content);//获取天气信息
 				String msg = weather.toString();
-				if(msg.contains("免费")){//免费的总是那么有限，查询次数有限。多了明天再来
+				if(msg.contains("免费")){//免费次数受限
 					mess = "名额有限,请明日再来(功能完善中，敬请期待...)";
 				}else{
 					String[] split = msg.split("。");
-					//这是一个非常恶心的做法,根据返回的天气信息截取其中的一部分发送给用户
+					//根据返回的天气信息截取其中的一部分发送给用户
 					//(输入错误的地区查询不到数据则这里会异常ArrayIndexOutOfBoundsException)
 					for (int i = 0; i < 7; i++) {
 						mess += split[i];

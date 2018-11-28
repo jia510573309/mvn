@@ -8,13 +8,13 @@ import java.util.Arrays;
  * 类名称: CheckUtil
  * 类描述: 请求校验
  * @author Jiam
- * 创建时间:2017年12月8日上午10:54:16
  */
 public class CheckUtil {
 
-	private static final String token = "6465862399b292f7306f6f1c066160ea";
+	private static final String TOKEN = "6465862399b292f7306f6f1c066160ea";
+	
 	public static boolean checkSignature(String signature,String timestamp,String nonce){
-		String[] str = new String[]{token,timestamp,nonce};
+		String[] str = new String[]{TOKEN,timestamp,nonce};
 		//排序
 		Arrays.sort(str);
 		//拼接字符串
