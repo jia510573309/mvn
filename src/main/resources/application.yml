@@ -42,11 +42,11 @@ mybatis:
         cache-enabled: false
         call-setters-on-nulls: true
         
-#包路径为mapper文件包路径
+#显示sql,包路径为mapper文件包路径
 logging:
     level:
       com.min.dao: DEBUG
 testParam:
-  test: 100
+    test: 100
                 
                 
