@@ -1,14 +1,17 @@
 package com.min.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.min.form.UserForm;
 import com.min.menu.ClickButton;
 import com.min.menu.ViewButton;
 import com.min.service.UserService;
 import com.min.utils.HttpUtils;
 import com.min.utils.R;
+import com.min.utils.ValidatorUtils;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,14 +22,17 @@ public class TestController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("index")
-	public String getIndex() {
-		return "index.html";
-	}
 
 	@RequestMapping("test")
 	public @ResponseBody String test() {
-		return "mvn -- request Success ! ! !update2 at 2018年11月28日15:38:46";
+		return "mvn -- request Success ! ! !update2 at 2018年11月29日16:29:25";
+	}
+	
+	@RequestMapping("login")
+	public @ResponseBody String login(@RequestBody UserForm form) {
+		ValidatorUtils.check(form);
+		System.err.println("------小程序测试请求成功-------username:"+form.getUserName()+"password:"+form.getUserPwd());
+		return "true";
 	}
 	
 	@RequestMapping("user")

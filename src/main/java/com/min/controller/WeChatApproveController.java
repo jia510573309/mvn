@@ -75,7 +75,7 @@ public class WeChatApproveController {
 				}
 			} catch (Exception e) {
 				//e.printStackTrace();
-				mess = "输入地区可查询天气信息(功能完善中，敬请期待....m)";
+				mess = "功能完善中，敬请期待....Jm)";
 			}
 			System.out.println(
 					"发送者:"+toUserName+"\t发送内容:"+content+"\t发送时间:"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
