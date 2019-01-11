@@ -11,9 +11,14 @@ import com.min.utils.ValidatorUtils;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -33,6 +38,28 @@ public class TestController {
 		ValidatorUtils.check(form);
 		System.err.println("------小程序测试请求成功-------username:"+form.getUserName()+"password:"+form.getUserPwd());
 		return "true";
+	}
+	
+	@GetMapping("ball")
+	public @ResponseBody String ball() {
+		//双色球
+		List<Integer> ballNums = new ArrayList<>();
+		//红球
+		for (int i = 0; i < 6; i++) {
+			ballNums.add((int) (Math.random() * 33 + 1));
+			Collections.sort(ballNums);
+			for (int j = 1; j < ballNums.size(); j++) {
+				if (ballNums.get(j) == ballNums.get(j - 1)) {//判断重复
+					i--;
+					ballNums.remove(j);
+					break;
+				}
+			}
+		}
+		//蓝球
+		ballNums.add((int) (Math.random() * 16 + 1));
+		String s = ballNums.toString();
+		return s;
 	}
 	
 	@RequestMapping("user")

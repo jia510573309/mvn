@@ -2,8 +2,26 @@
 		"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>mvn-index-page</title>
+	<title>mvn项目首页</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script>
+		function getBall(){
+            $.ajax({
+                url: 'http://localhost:8088/ball',
+                type: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(data){
+                    alert(data)
+                },
+                error: function(){
 
+                }
+            })
+		}
+  
+	</script>
 </head>
 <body>
 	<div>
@@ -31,6 +49,6 @@
 	</div>
 	<div style="text-align: center"><h2>this is mvn.war -- jm</h2></div>
 	<div style="padding-left: 20px;padding-right: 20px"><h2>this is mvn.war -- jm</h2></div>
-	
+	<button onclick="getBall()">双色球</button>
 </body>
 </html>
