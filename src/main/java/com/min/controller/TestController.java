@@ -11,10 +11,7 @@ import com.min.utils.ValidatorUtils;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,6 +28,11 @@ public class TestController {
 	@RequestMapping("test")
 	public @ResponseBody String test() {
 		return "mvn -- request Success ! ! !update2 at 2018年11月29日16:29:25";
+	}
+	
+	@PostMapping("cors")
+	public @ResponseBody String corsTest() {
+		return "request success";
 	}
 	
 	@RequestMapping("login")
